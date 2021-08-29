@@ -1,0 +1,107 @@
+{% extends 'network/layout.html' %}
+{% load static %}
+{% block mainContent %}
+<input id="profileId" type="text" hidden value="{{user_profile.id}}">
+	<div class="mainContent">
+		<div class="pageName">
+			<h2>Profile</h2>
+		</div>
+		<div class="profileHeader">
+			<div class="profilePagePicture">
+				<img
+					src="/images/{{profile.profilePicture}}"
+					alt=""
+					width="100"
+					height="100"
+				/>
+				<div class="edit">
+					<form action="{% url 'profilePicture' %}" method="POST" enctype="multipart/form-data">
+						{% csrf_token %}
+						<input type="file" name='filename'>	
+					</form>
+				</div>
+			</div>
+			<div class="userInfo">
+				<h1>{{profile.user}}</h1>
+			</div>
+			<div class="followingInfo">
+					<div class="followCount">
+						<div>Followers:</div>
+						<div class="followerCounter">{{profile.followers_count}}</div>
+					</div>
+					<div class="followCount">
+						<div>Following:</div>
+						<div>{{profile.following_count}}</div>
+					</div>
+			</div>
+			<div class="followerButton">
+                {% if user.is_authenticated %}
+                    {% if user != profile.user %}
+                        <div>
+                            <button id="followButton" type="button" class="followButton" {% if user not in profile.followers.all %} onclick="followUser({{profile.id}});">Follow{% else %} onclick="unfollowUser({{profile.id}});">Unfollow{% endif %}</button>
+                        </div>
+                    {% endif %}
+                {% endif %}
+			</div>
+		</div>
+		<div class="postsBody">
+            {% for post in posts.object_list %}
+            <div class="post">
+                <div class="postHeader {{post.id}}">
+                    <div class="profilePicture">
+                        <img src="/images/{{post.get_profile_picture}}" alt=""width="50" height="50">
+                    </div>
+                    <div class="edit-post">
+                        <div class="username">
+                            <label><a href= "{% url 'profile' post.author.id %}" class="userLink">{{post.author}}</a></label>
+                            <p><small>{{post.dateTime}}</small></p>
+                        </div>
+                        {% if user == post.author %}
+                            <img src="{%static 'network/images/edit.svg' %}" alt="" width="20" height="20" onclick="editPost({{post.id}},'edit');">
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="postBody {{post.id}}">
+                    <p>{{post.content | linebreaksbr}}</p>
+                    <div class="editForm {{post.id}}">
+                        <textarea class="textarea"></textarea>
+                        <button type="button" onclick="updatePostData({{post.id}});">Save</button>
+                        <button  onclick="editPost({{post.id}},'cancel');">Cancel</button>
+                    </div>
+                </div>
+                <div class="postInteractions">
+                    <div class="postIcon"><img {% if user in post.likers.all %} class="True" src="{% static 'network/images/heartClicked.svg' %}" {% else %}class="False" src="{% static 'network/images/heart.svg' %}"{% endif %} onclick='postClicked({{post.id}},this)'><span class='likesCount'>{{post.likes_count}}</span></div>
+                    <div class="postIcon"><img src="{% static 'network/images/retweet.svg' %}" alt=""></div>
+                    <div class="postIcon"><img src="{% static 'network/images/comment.svg' %}" alt=""></div>
+                </div>
+            </div>   
+            {% endfor %}
+    </div>
+    </div>
+{% endblock %}
+{% block pagination %}
+    <div class="pagination">
+        <input type="text" hidden name="pageNumber" value="{{page_number}}">
+        <ul>
+            {% if posts.has_previous %}
+                <a href="?post={{posts.previous_page_number}}">
+                    <li class="page">Previous</li>
+                </a>
+            {% else %}
+                <button class="page disabledPage" disabled>Previous</button>
+            {% endif %}
+            {% for i in p.page_range %}
+                <a href = "?post={{i}}" id="{{i}}"> 
+                    <li class="page">{{i}}</li>
+                </a>
+            {% endfor %}
+            {% if posts.has_next %}
+                <a href="?post={{posts.next_page_number}}">
+                    <li class="page">Next</li>
+                </a>
+            {% else %}
+                <button class="page disabledPage" disabled>Next</button>
+            {% endif %}
+        </ul>
+    </div>
+{% endblock pagination %}

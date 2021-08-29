@@ -1,0 +1,37 @@
+{% extends 'network/logintemplate.html' %}
+{% load static %}
+
+{% block body %}
+
+    {% if message %}
+        <div>{{ message }}</div>
+    {% endif %}
+
+    <div class="loginPageWrapper">
+        <div class="loginFormSection">
+            <form action="{% url 'register' %}" method="post">
+                {% csrf_token %}
+                <h1>Register</h1>
+                <div class="form-group">
+                    <input class="form-control" autofocus type="text" name="username" placeholder="Username">
+                </div>
+                <div class="form-group">
+                    <input class="form-control" type="email" name="email" placeholder="Email Address">
+                </div>
+                <div class="form-group">
+                    <input class="form-control" type="password" name="password" placeholder="Password">
+                </div>
+                <div class="form-group">
+                    <input class="form-control" type="password" name="confirmation" placeholder="Confirm Password">
+            </div>
+            <input class="submitButton" type="submit" value="Register">
+            <span class="registerMessage">Already a member? </span>
+            <a href="{% url 'login' %}">Log In here.</a>
+            </form>
+        </div>
+            <div class="loginImageSection">
+                <h1>Join your friends and family...</h1>
+                <img src="{% static 'network/images/friends.png' %}" alt="">
+            </div>
+    </div>
+{% endblock %}

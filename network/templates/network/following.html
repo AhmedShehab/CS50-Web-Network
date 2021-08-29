@@ -1,0 +1,59 @@
+{% extends 'network/layout.html' %}
+{% load static %}
+{% block mainContent %}
+<input id="profileId" type="text" hidden value="{{user_profile.id}}">
+	<div class="mainContent">
+		<div class="pageName">
+			<h2>Following</h2>
+		</div>
+		<div class="postsBody">
+        {% for post in posts.object_list %}
+        <div class="post">
+            <div class="postHeader">
+                <div class="profilePicture">
+                    <img src="/images/{{post.get_profile_picture}}" alt=""width="50" height="50">
+                </div>
+                <div class="username">
+                    <label><a href= "{% url 'profile' post.author.id %}" class="userLink">{{post.author}}</a></label>
+                    <p><small>{{post.dateTime}}</small></p>
+                </div>
+            </div>
+            <div class="postBody">
+                <p>{{post.content | linebreaks}}</p>
+            </div>
+            <div class="postInteractions">
+                <div class="postIcon"><img {% if user in post.likers.all %} class="True" src="{% static 'network/images/heartClicked.svg' %}" {% else %}class="False" src="{% static 'network/images/heart.svg' %}"{% endif %} onclick='postClicked({{post.id}},this)'><span class='likesCount'>{{post.likes_count}}</span></div>
+                <div class="postIcon"><img src="{% static 'network/images/retweet.svg' %}" alt=""></div>
+                <div class="postIcon"><img src="{% static 'network/images/comment.svg' %}" alt=""></div>
+            </div>
+        </div>   
+        {% endfor %}
+    </div>
+		</div>
+{% endblock %}
+{% block pagination %}
+    <div class="pagination">
+        <input type="text" hidden name="pageNumber" value="{{page_number}}">
+        <ul>
+            {% if posts.has_previous %}
+                <a href="?post={{posts.previous_page_number}}">
+                    <li class="page">Previous</li>
+                </a>
+            {% else %}
+                <button class="page disabledPage" disabled>Previous</button>
+            {% endif %}
+            {% for i in p.page_range %}
+                <a href = "?post={{i}}" id="{{i}}"> 
+                    <li class="page">{{i}}</li>
+                </a>
+            {% endfor %}
+            {% if posts.has_next %}
+                <a href="?post={{posts.next_page_number}}">
+                    <li class="page">Next</li>
+                </a>
+            {% else %}
+                <button class="page disabledPage" disabled>Next</button>
+            {% endif %}
+        </ul>
+    </div>
+{% endblock pagination %}

@@ -1,0 +1,590 @@
+/* Body styling */
+* {
+  margin: 0;
+}
+
+html {
+  overflow: -moz-scrollbars-vertical;
+  overflow-y: scroll;
+}
+
+/* Home Page Styling */
+.homePageWrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+/* Side Bar Style*/
+.sideBar {
+  position: -webkit-sticky;
+  position: sticky;
+  top: -1px;
+  z-index: 0;
+  left: 0;
+  width: 30%;
+  min-width: 120px;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: white;
+  padding-top: 3rem;
+}
+
+.sideLink {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-decoration: none;
+  padding: 10px;
+  border: 1px transparent;
+  margin-left: 30px;
+  border-radius: 0.5rem;
+  margin: 0.2rem;
+  color: black;
+  font-family: arial, sans-serif;
+}
+
+.sideLink:hover {
+  background-color: #d6f7e7;
+  cursor: pointer;
+}
+
+.sideIcon {
+  aspect-ratio: 1/1;
+  width: 20px;
+  display: inline-block;
+  margin-right: 0.5rem;
+}
+
+.highlight {
+  background-color: #d6f7e7;
+  color: black;
+  font-weight: bold;
+}
+
+/* Main page Styling */
+.mainContent {
+  width: 40%;
+  border: 1px solid #d6f7e7;
+  min-width: 400px;
+}
+
+.pageName {
+  border-bottom: 1px solid #d6f7e7;
+  padding: 0.3rem;
+}
+
+.pageName h2 {
+  font-family: arial, sans-serif;
+  color: #00cc70;
+}
+
+.userCredentials {
+  padding: 0.5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-bottom: none;
+  border-collapse: collapse;
+}
+
+.profilePicture {
+  aspect-ratio: 1/1;
+  width: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.username {
+  padding-left: 1rem;
+  font-family: arial, sans-serif;
+  font-size: 20px;
+}
+
+.createNewPost {
+  height: 13vh;
+  width: 100%;
+  color: #00cc70;
+  border-collapse: collapse;
+  border-top: none;
+  border-bottom: 10px solid #d6f7e7;
+}
+
+.createNewPost div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.createNewPost form {
+  width: 100%;
+}
+
+.createNewPost p {
+  display: inline-block;
+  margin-left: 1rem;
+}
+
+.createNewPost button {
+  background-color: #d6f7e7;
+  padding: 0.5rem;
+  border: 1px transparent;
+  border-radius: 0.5rem;
+  margin-right: 1rem;
+}
+
+.createNewPost button:hover {
+  background-color: #00cc70;
+  font-family: arial, sans-serif;
+}
+
+.charCountGreen {
+  color: #00cc70;
+}
+
+.charCountRed {
+  color: red;
+  font: bold;
+}
+
+.textarea {
+  display: block;
+  width: 95.6%;
+  height: 40px;
+  overflow: overlay;
+  outline: #d6f7e7;
+  padding: 2%;
+}
+
+.textarea::-webkit-input-placeholder {
+  color: #00e67e;
+}
+
+.textarea:-ms-input-placeholder {
+  color: #00e67e;
+}
+
+.textarea::-ms-input-placeholder {
+  color: #00e67e;
+}
+
+.textarea::placeholder {
+  color: #00e67e;
+}
+
+.textarea[contenteditable]:empty::before {
+  content: "What's on your mind ...";
+  font-size: 25px;
+  color: #00e67e;
+}
+
+.post {
+  border-top: 1px solid #d6f7e7;
+}
+
+.userLink {
+  color: black;
+  text-decoration: none;
+}
+
+.userLink:hover {
+  color: #00cc70;
+  cursor: pointer;
+}
+
+.postHeader {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 1rem;
+}
+
+.edit-post {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  width: 100%;
+}
+
+.edit-post img {
+  margin-left: auto;
+}
+
+.edit-post img:hover {
+  cursor: pointer;
+}
+
+.editForm {
+  display: none;
+}
+
+.postBody {
+  padding: 1rem;
+  font-family: arial, sans-serif;
+  font-size: 20px;
+  overflow-wrap: break-word;
+}
+
+.postInteractions {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  height: 30px;
+  margin-top: 1rem;
+}
+
+.postIcon {
+  width: 33%;
+  height: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.postIcon img {
+  width: 20px;
+  -webkit-transition: 100ms ease-in transform;
+  transition: 100ms ease-in transform;
+}
+
+.postIcon img:hover {
+  cursor: pointer;
+}
+
+.postIcon img:active {
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+  -webkit-filter: drop-shadow(-6px 4px 6px rgba(0, 0, 0, 0.562));
+          filter: drop-shadow(-6px 4px 6px rgba(0, 0, 0, 0.562));
+}
+
+.postIcon span {
+  width: 20%;
+  margin-left: 10px;
+}
+
+.pagination {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0.3rem;
+}
+
+.pagination ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  list-style-type: none;
+}
+
+.pagination a {
+  text-decoration: none;
+}
+
+.pagination .currentPage li {
+  background-color: #00cc70;
+  color: white;
+  cursor: default;
+}
+
+.pagination li {
+  text-align: center;
+  background-color: white;
+  border: 1px solid #00e67e;
+  color: #00cc70;
+  padding: 0.5rem;
+  border-radius: 0.3rem;
+  margin: 1px;
+}
+
+.pagination li:hover, .pagination li:active {
+  background-color: #00cc70;
+  color: white;
+}
+
+/* Profile page styling */
+.profileHeader {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 1rem;
+}
+
+.edit {
+  display: none;
+  position: absolute;
+  top: 10px;
+  right: 35px;
+}
+
+.profilePagePicture {
+  position: relative;
+  aspect-ratio: 1/1;
+  width: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.profilePagePicture:hover .edit {
+  display: block;
+}
+
+.followingInfo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.followCount {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 1rem;
+  font: arial, sans-serif 30px;
+  font-weight: bold;
+}
+
+.followButton {
+  padding: .7rem;
+  background-color: #00cc70;
+  color: black;
+  border: #d6f7e7 solid 1px;
+  border-radius: .5rem;
+  font: arial, sans-serif 30px;
+  font-weight: bold;
+}
+
+.followButton:hover {
+  cursor: pointer;
+  background-color: #d6f7e7;
+  color: black;
+}
+
+/* Login Page Styling */
+.loginPageWrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  position: absolute;
+  height: 100vh;
+  width: 100%;
+  background-color: #d6f7e7;
+}
+
+.loginPageWrapper img {
+  width: 100ch;
+}
+
+.registerMessage {
+  color: black;
+}
+
+.loginImageSection h1::first-letter {
+  font-size: 200%;
+}
+
+.loginFormSection {
+  border-right: solid 2px #00cc70;
+  -webkit-filter: drop-shadow(-6px 4px 6px rgba(0, 0, 0, 0.562));
+          filter: drop-shadow(-6px 4px 6px rgba(0, 0, 0, 0.562));
+}
+
+.loginFormSection h1 {
+  color: black;
+}
+
+.loginFormSection ::-webkit-input-placeholder {
+  color: #00cc70;
+}
+
+.loginFormSection :-ms-input-placeholder {
+  color: #00cc70;
+}
+
+.loginFormSection ::-ms-input-placeholder {
+  color: #00cc70;
+}
+
+.loginFormSection ::placeholder {
+  color: #00cc70;
+}
+
+.loginFormSection .submitButton {
+  background-color: #00e67e;
+  padding: 0.7rem;
+  border-radius: 0.3rem;
+}
+
+.loginFormSection .submitButton:hover {
+  background-color: #00cc70;
+}
+
+.loginFormSection form {
+  font-family: arial, sans-serif;
+  margin: 4rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.loginFormSection form input {
+  border: 1px transparent;
+  border-radius: 2px;
+  font-size: 15px;
+}
+
+.loginFormSection form * {
+  padding: 0.5rem;
+  outline: none;
+}
+
+.loginFormSection a {
+  color: black;
+}
+
+.loginFormSection a:hover {
+  color: #00cc70;
+}
+
+.imageLicense {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  color: #00e67e;
+}
+
+@media screen and (max-width: 850px) {
+  .mainContent {
+    width: 70%;
+  }
+}
+
+@media screen and (max-width: 950px) {
+  .loginPageWrapper img {
+    display: none;
+  }
+  .loginPageWrapper .imageLicense {
+    display: none;
+  }
+  .loginFormSection {
+    min-width: 400px;
+    overflow: hidden;
+    width: 100%;
+  }
+}
+/*# sourceMappingURL=styles.css.map */
